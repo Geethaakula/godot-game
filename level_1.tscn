@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://b3fud1mijvkdb"]
+
+[ext_resource type="Texture2D" uid="uid://c3liuv3302u22" path="res://Sprites/Tiles/grassHalfLeft.png" id="1_neqcd"]
+[ext_resource type="Texture2D" uid="uid://bky1j8r0vhkd0" path="res://Sprites/Tiles/grassHalfMid.png" id="2_row5e"]
+[ext_resource type="Texture2D" uid="uid://b86k0upbegf16" path="res://Sprites/Tiles/grassHalfRight.png" id="3_w2515"]
+[ext_resource type="PackedScene" uid="uid://dnawproo4e2o4" path="res://character_body_2d.tscn" id="4_7uys6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g0muy"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_weguh"]
+texture = ExtResource("1_neqcd")
+texture_region_size = Vector2i(70, 70)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -36, 32, 4, -32, 4)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g516m"]
+texture = ExtResource("2_row5e")
+texture_region_size = Vector2i(70, 70)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-36, -32, 36, -32, 36, 4, -36, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_54q8k"]
+texture = ExtResource("3_w2515")
+texture_region_size = Vector2i(70, 70)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-36, -36, 32, -36, 32, 4, -36, 0)
+
+[sub_resource type="TileSet" id="TileSet_hu58f"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_g0muy")
+sources/0 = SubResource("TileSetAtlasSource_weguh")
+sources/1 = SubResource("TileSetAtlasSource_g516m")
+sources/2 = SubResource("TileSetAtlasSource_54q8k")
+
+[node name="Level1" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-32, 9)
+tile_set = SubResource("TileSet_hu58f")
+format = 2
+layer_0/tile_data = PackedInt32Array(-131072, 1, 0, -131068, 1, 0, -131064, 1, 0, -131060, 1, 0, -131056, 1, 0, -131052, 1, 0, -131048, 1, 0, -131044, 1, 0, -131040, 1, 0, -131036, 2, 0, -65540, 0, 0)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_7uys6")]
+position = Vector2(-46, -106)
